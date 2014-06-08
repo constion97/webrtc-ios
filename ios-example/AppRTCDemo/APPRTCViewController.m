@@ -96,7 +96,7 @@
     //** launch Video View
     NSLog(@"SEQ2-Sending CONNECT to room # %@", room);
     NSString *url =
-        [NSString stringWithFormat:@"apprtc://apprtc.appspot.com/?r=%@", room];
+        [NSString stringWithFormat:@"apprtc://apprtc.appspot.com/?audio=true&video=false&r=%@", room];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
     
     //** launch Video View
@@ -161,7 +161,7 @@
   // the user to have the simplicity of just entering the room or the ability to
   // override to a custom appspot instance.  Remove apprtc:// when this is done.
   NSString *url =
-      [NSString stringWithFormat:@"apprtc://apprtc.appspot.com/?r=%@", room];
+      [NSString stringWithFormat:@"apprtc://apprtc.appspot.com/?audio=true&video=false&r=%@", room];
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 #endif
 }

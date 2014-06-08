@@ -91,8 +91,8 @@
     NSAssert([stream.audioTracks count] >= 1,
              @"Expected at least 1 audio stream");
 
-    NSAssert([stream.videoTracks count] >= 1,
-             @"Expected at least 1 video stream");
+    //ion NSAssert([stream.videoTracks count] >= 1,
+    //         @"Expected at least 1 video stream");
       
     if ([stream.videoTracks count] > 0) {
         [[self videoView] renderVideoTrackInterface:[stream.videoTracks objectAtIndex:0]];
@@ -269,8 +269,12 @@
       [self.peerConnectionFactory mediaStreamWithLabel:@"ARDAMS"];
     NSLog(@"Adding Audio and Video devices ...");
     [lms addAudioTrack:[self.peerConnectionFactory audioTrackWithID:@"ARDAMSa0"]];
+
     
-  
+    //** add stream
+    [self.peerConnection addStream:lms constraints:_constraints];
+    return;
+    
     //**  http://code.google.com/p/webrtc/issues/detail?id=2246
     
     NSString *cameraID = nil;
